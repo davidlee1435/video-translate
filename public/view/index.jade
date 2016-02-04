@@ -1,0 +1,94 @@
+doctype html
+html.
+  <head>
+    <link href="css/speech.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+    <meta charset="utf-8">
+    <title>Web Speech API Demo</title>
+    <style></style>
+    <h1 class="center" id="headline">
+      Web Speech API Demonstration
+    </h1>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          </button>
+          <a class="navbar-brand" href="#">Video Chat</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" >
+            <div class="form-group">
+              <input type="text" name="userId" id="userId" placeholder="User" class="form-control">
+            </div>
+            <div class="form-group">
+             <input type="text" name="roomId" id="roomId" placeholder="Room" class="form-control">
+            </div>
+           <input tupe="button" id="startButton" class="btn btn-success" value="Join"/>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="info">
+      <p id="info_start">Click on the microphone icon and begin speaking.</p>
+      <p id="info_speak_now">Speak now.</p>
+      <p id="info_no_speech">No speech was detected. You may need to adjust your
+        <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+          microphone settings</a>.</p>
+      <p id="info_no_microphone" style="display:none">
+        No microphone was found. Ensure that a microphone is installed and that
+        <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+        microphone settings</a> are configured correctly.</p>
+      <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
+      <p id="info_denied">Permission to use microphone was denied.</p>
+      <p id="info_blocked">Permission to use microphone is blocked. To change,
+        go to chrome://settings/contentExceptions#media-stream</p>
+      <p id="info_upgrade">Web Speech API is not supported by this browser.
+         Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+         version 25 or later.</p>
+    </div>
+    <div class="right">
+      <button id="start_button" onclick="startTranslate(event)">
+        <img id="start_img" src="/images/mic.gif" alt="Start"></button>
+    </div>
+    <div id="results">
+      <span id="final_span" class="final"></span>
+      <span id="interim_span" class="interim"></span>
+      <p>
+    </div>
+    <div class="center">
+      <div class="col-md-8" >
+        <div class="row">
+          <img src="images/remote.png" id="remoteimg" class="img-responsive"/>
+          <video id='remoteVideo' autoplay width="100%" class="remote"></video>
+        </div>
+      </div>
+      <div class="col-md-4 local" >
+        <div class="row">
+           <img src="images/local.png" id="localimg" class="img-responsive"/>
+           <video id='localVideo' autoplay muted width="100%" ></video>
+        </div>
+        <div class="row">
+          <div id="chat" class="txtarea fullsz"></div>
+          <input type="text" id="msg" placeholder="Press enter to send message" class="fullsz form-control"/>
+        </div>
+      </div>
+    </div>
+      <p>
+      <div id="div_language">
+        <select id="select_language" onchange="updateCountry()"></select>
+        &nbsp;&nbsp;
+        <select id="select_dialect"></select>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <!-- Application Specific Javascripts -->
+    <script src='/socket.io/socket.io.js'></script>
+    <script src='js/speech.js'></script>
+    <script src='js/video.js'></script>
+  </body>
