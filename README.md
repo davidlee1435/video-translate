@@ -1,12 +1,15 @@
 ## Video-Translate
+Video chat application that translates what the other person is saying into the language of your choice. 
+ 
+## Running On Your Server
+Clone to your machine and run
 
-## If you want to run on your server
-
-  - Clone to your machine
-  - run npm install from your CLI
-  - run node server.js command
-  - Open localhost:3000
-  - And You Go....
+```
+npm install
+node app.js
+```
+	  
+Open localhost:3000 in your browser. Boom. Magic.
 
 ## Authors
 
