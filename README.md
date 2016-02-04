@@ -5,8 +5,8 @@ Video chat application that translates what the other person is saying into the 
 Clone to your machine and run
 
 ```
-npm install
-node app.js
+$ npm install
+$ node app.js
 ```
 	  
 Open localhost:3000 in your browser. Boom. Magic.
